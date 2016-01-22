@@ -2,7 +2,7 @@
     var buildNumber = "#build.number#";
 }
 
-@if (!buildNumber.EndsWith("#")) // If the placeholder value wasn't replaced, then it doesn't need to be displayed.
+@if (!buildNumber.ToString().EndsWith(".number#")) // If the placeholder value wasn't replaced, then it doesn't need to be displayed.
 {
     Style.Require("Lombiq.Hosting.Deployments.BuildNumber.Admin");
     
