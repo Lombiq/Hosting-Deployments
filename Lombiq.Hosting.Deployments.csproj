@@ -67,6 +67,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Styles\hosting-deployments-buildnumber-admin.css">
+      <DependentUpon>hosting-deployments-buildnumber-admin.less</DependentUpon>
+    </Content>
+    <Content Include="Styles\hosting-deployments-buildnumber-admin.less" />
+    <Content Include="Styles\Web.config" />
+    <None Include="Views\BuildNumber.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
     <Content Include="Module.txt" />
@@ -80,6 +86,11 @@
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Filters\BuildNumberDisplayingFilter.cs" />
+    <Compile Include="ResourceManifest.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
