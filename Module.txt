@@ -1,10 +1,12 @@
-﻿Name: Lombiq.Hosting.Deployments
+﻿Name: Hosting - Deployments
 AntiForgery: enabled
-Author: The Orchard Team
-Website: http://orchardproject.net
+Author: Lombiq
+Website: http://lombiq.com
 Version: 1.0
-OrchardVersion: 1.0
-Description: Description for the module
+OrchardVersion: 1.9.0
+Description: Functionalities related to continuous integration and deployment.
 Features:
     Lombiq.Hosting.Deployments:
-        Description: Description for feature Lombiq.Hosting.Deployments.
+        Name: Hosting - Deployments
+        Description: Functionalities related to continuous integration and deployment.
+        Category: Hosting
