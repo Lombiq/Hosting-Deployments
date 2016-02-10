@@ -27,7 +27,7 @@ namespace Lombiq.Hosting.Deployments.Filters
 
         public void OnResultExecuting(ResultExecutingContext filterContext)
         {
-            if (!AdminFilter.IsApplied(filterContext.RequestContext)) return;
+            if (!(filterContext.Result is ViewResult && AdminFilter.IsApplied(filterContext.RequestContext))) return;
 
             var footerZone = _workContextAccessor.GetContext(filterContext).Layout.Zones["Footer"];
             footerZone = footerZone.Add(_shapeFactory.BuildNumber());
