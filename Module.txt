@@ -3,7 +3,7 @@ AntiForgery: enabled
 Author: Lombiq
 Website: http://lombiq.com
 Version: 1.0
-OrchardVersion: 1.9.1
+OrchardVersion: 1.9.2
 Description: Functionalities related to continuous integration and deployment.
 Features:
     Lombiq.Hosting.Deployments:
