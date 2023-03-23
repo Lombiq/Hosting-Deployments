@@ -1,10 +1,13 @@
 ﻿@{
-    var buildNumber = "#build.number#";
+    string buildNumber = null;
+    string buildLink = null;
 }
 
-@if (!buildNumber.ToString().EndsWith(".number#")) // If the placeholder value wasn't replaced, then it doesn't need to be displayed.
+@* If the placeholder value wasn't replaced, then it doesn't need to be displayed. *@
+@if (!string.IsNullOrEmpty(buildNumber) || !string.IsNullOrEmpty(buildLink))
 {
     Style.Require("Lombiq.Hosting.Deployments.BuildNumber.Admin");
+    buildNumber = buildNumber ?? buildLink;
     
-    <div id="lombiq-hosting-deployments-buildnumber">@T("Build: {0}", buildNumber)</div>
+    <div id="lombiq-hosting-deployments-buildnumber">@T("Build: {0}", Html.LinkOrDefault(buildNumber, buildLink))</div>
 }

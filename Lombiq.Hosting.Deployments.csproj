@@ -139,9 +139,15 @@
     </PropertyGroup>
     <FileUpdate
       Files="$(BuildNumberFilePath)"
-      Regex="\#build\.number\#"
-      ReplacementText="$(BuildNumber)"
+      Regex="buildNumber = null"
+      ReplacementText="buildNumber = &quot;$(BuildNumber)&quot;"
       Condition="'$(BuildNumber)' != '' AND Exists('$(BuildNumberFilePath)')"
+    />
+    <FileUpdate
+      Files="$(BuildNumberFilePath)"
+      Regex="buildLink = null"
+      ReplacementText="buildLink = &quot;$(BuildLink)&quot;"
+      Condition="'$(BuildLink)' != '' AND Exists('$(BuildNumberFilePath)')"
     />
   </Target>
   <Target Name="AfterBuild" DependsOnTargets="AfterBuildCompiler">
