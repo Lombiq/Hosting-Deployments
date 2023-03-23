@@ -90,6 +90,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MSBuildTasks" Version="1.5.0.235" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Styles\hosting-deployments-buildnumber-admin.css">
       <DependentUpon>hosting-deployments-buildnumber-admin.less</DependentUpon>
     </Content>
@@ -129,10 +132,18 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
+  <!-- Replace the marker string in BuildNumber.cshtml with the value defined in the BuildNumber build parameter. -->
   <Target Name="BeforeBuild">
-  </Target> -->
+    <PropertyGroup>
+      <BuildNumberFilePath>$(ProjectDir)\Views\BuildNumber.cshtml</BuildNumberFilePath>
+    </PropertyGroup>
+    <FileUpdate
+      Files="$(BuildNumberFilePath)"
+      Regex="\#build\.number\#"
+      ReplacementText="$(BuildNumber)"
+      Condition="'$(BuildNumber)' != '' AND Exists('$(BuildNumberFilePath)')"
+    />
+  </Target>
   <Target Name="AfterBuild" DependsOnTargets="AfterBuildCompiler">
     <PropertyGroup>
       <AreasManifestDir>$(ProjectDir)\..\Manifests</AreasManifestDir>
