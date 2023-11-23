@@ -186,5 +186,7 @@
   <ItemGroup>
     <Content Include="License.md" />
     <Content Include="Readme.md" />
+    <Content Include=".github\workflows\create-jira-issues-for-community-activities.yml" />
+    <Content Include=".github\workflows\validate-pull-request.yml" />
   </ItemGroup>
 </Project>
