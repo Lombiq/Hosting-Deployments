@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="..\..\..\..\lib\msbuildtasks\MSBuild.Community.Tasks.Targets" />
@@ -182,5 +182,11 @@
   </ProjectExtensions>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License.md" />
+    <Content Include="Readme.md" />
+    <Content Include=".github\workflows\create-jira-issues-for-community-activities.yml" />
+    <Content Include=".github\workflows\validate-pull-request.yml" />
   </ItemGroup>
 </Project>
